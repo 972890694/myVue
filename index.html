@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>myVue</title>
+</head>
+
+<body>
+    <div id="app">
+        <p v-on:click="clickFn1">你吃饭了吗{{ car.name }}</p>
+        <p @click="clickFn">{{ msg }}</p>
+        <input type="text" v-model="car.name">
+        <input type="text" v-model="msg">
+        <button @click="btn">我是按钮</button>
+    </div>
+
+    <script src="./src/watcher.js"></script>
+    <script src="./src/observer.js"></script>
+    <script src="./src/compiler.js"></script>
+    <script src="./src/vue.js"></script>
+    <script>
+        const vm = new Vue({
+            el: '#app',
+            data: {
+                msg: '在干嘛嘛',
+                car: {
+                    name: '宝马'
+                }
+            },
+            methods: {
+                clickFn1() {
+                    console.log(this);
+                    
+                },
+                clickFn() {
+                    this.msg = '吃了吗'
+                },
+                btn() {
+                    this.msg = '点击了按钮'
+                    this.car.name = '奔驰'
+                }
+            }
+        })
+    </script>
+</body>
+
+</html>
